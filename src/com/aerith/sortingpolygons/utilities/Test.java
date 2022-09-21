@@ -63,7 +63,7 @@ public class Test {
         boolean lastPrinted = false;
         switch (type) {
             case 'h': {
-                for (int i = 0; i < shapes.length; i += 10000) {
+                for (int i = 0; i < shapes.length; i += 1000) {
                     if (i == shapes.length - 1) lastPrinted = true;
                     System.out.println(shapes[i].getHeight());
                 }
@@ -71,7 +71,7 @@ public class Test {
             }
             break;
             case 'a': {
-                for (int i = 0; i < shapes.length; i += 10000) {
+                for (int i = 0; i < shapes.length; i += 1000) {
                     if (i == shapes.length - 1) lastPrinted = true;
                     System.out.println(shapes[i].getBaseArea());
                 }
@@ -79,7 +79,7 @@ public class Test {
             }
             break;
             case 'v': {
-                for (int i = 0; i < shapes.length; i += 10000) {
+                for (int i = 0; i < shapes.length; i += 1000) {
                     if (i == shapes.length - 1) lastPrinted = true;
                     System.out.println(shapes[i].getVolume());
                 }

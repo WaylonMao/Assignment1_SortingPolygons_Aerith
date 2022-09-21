@@ -63,8 +63,8 @@ public class BubbleSort {
         }
     }
 
-    public static void swap(Object[] o, int a, int b) {
-        Object temp = o[a];
+    public static <T> void swap(T[] o, int a, int b) {
+        T temp = o[a];
         o[a] = o[b];
         o[b] = temp;
     }

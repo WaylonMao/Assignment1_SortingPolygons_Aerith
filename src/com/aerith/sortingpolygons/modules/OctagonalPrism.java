@@ -5,7 +5,12 @@ package com.aerith.sortingpolygons.modules;
  *
  * @author Weilong Mao
  */
-public class OctagonalPrism extends Prisms {
+public class OctagonalPrism extends Prism {
+    /**
+     * The constructor of OctagonalPrism. Calculate its base area and volume at the same time.
+     * @param height
+     * @param side
+     */
     public OctagonalPrism(double height, double side) {
         super();
         setHeight(height);

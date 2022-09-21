@@ -5,8 +5,12 @@ package com.aerith.sortingpolygons.modules;
  *
  * @author Weilong Mao
  */
-public class PentagonalPrism extends Prisms {
-
+public class PentagonalPrism extends Prism {
+    /**
+     * The constructor of PentagonalPrism. Calculate its base area and volume at the same time.
+     * @param height
+     * @param side
+     */
     public PentagonalPrism(double height, double side) {
         super();
         setHeight(height);

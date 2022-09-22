@@ -42,7 +42,7 @@ public class MergeSort {
     }
 
     private static <T extends Comparable<? super T>> void doMerge(T[] arrays, int left, int mid, int right) {
-        T[] newArrays = Arrays.copyOf(arrays, right - left + 1);
+        T[] newArrays = (T[]) new Comparable[right - left + 1];
         int leftIndex = left;
         int rightIndex = mid + 1;
         int outIndex = 0;
@@ -58,7 +58,7 @@ public class MergeSort {
     }
 
     private static <T extends Comparable<? super T>> void doMerge(T[] arrays, int left, int mid, int right, Comparator<? super T> comparator) {
-        T[] newArrays = Arrays.copyOf(arrays, right - left + 1);
+        T[] newArrays = (T[]) new Comparable[right - left + 1];
         int leftIndex = left;
         int rightIndex = mid + 1;
         int outIndex = 0;
@@ -73,7 +73,7 @@ public class MergeSort {
             arrays[m + left] = newArrays[m];
         }
     }
-    //Des
+
     public static <T extends Comparable<? super T>> void mergeSortDesc(T[] arrays) {
         doSortDesc(arrays, 0, arrays.length - 1);
     }
@@ -101,7 +101,7 @@ public class MergeSort {
     }
 
     private static <T extends Comparable<? super T>> void doMergeDesc(T[] arrays, int left, int mid, int right) {
-        T[] newArrays = Arrays.copyOf(arrays, right - left + 1);
+        T[] newArrays = (T[]) new Comparable[right - left + 1];
         int leftIndex = left;
         int rightIndex = mid + 1;
         int outIndex = 0;
@@ -117,7 +117,7 @@ public class MergeSort {
     }
 
     private static <T extends Comparable<? super T>> void doMergeDesc(T[] arrays, int left, int mid, int right, Comparator<? super T> comparator) {
-        T[] newArrays = Arrays.copyOf(arrays, right - left + 1);
+        T[] newArrays = (T[]) new Comparable[right - left + 1];
         int leftIndex = left;
         int rightIndex = mid + 1;
         int outIndex = 0;

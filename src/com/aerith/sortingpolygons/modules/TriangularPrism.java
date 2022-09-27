@@ -5,12 +5,8 @@ package com.aerith.sortingpolygons.modules;
  *
  * @author Weilong Mao
  */
-public class TriangularPrism extends Prism {
-    /**
-     * The constructor of TriangularPrism. Calculate its base area and volume at the same time.
-     * @param height
-     * @param side
-     */
+public class TriangularPrism extends Prisms {
+
     public TriangularPrism(double height, double side) {
         super();
         setHeight(height);

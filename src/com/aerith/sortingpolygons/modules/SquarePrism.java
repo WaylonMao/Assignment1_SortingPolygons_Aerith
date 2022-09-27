@@ -5,20 +5,18 @@ package com.aerith.sortingpolygons.modules;
  *
  * @author Weilong Mao
  */
-public class SquarePrism extends Prisms {
-
+public class SquarePrism extends Prism {
+    /**
+     * The constructor of SquarePrism. Calculate its base area and volume at the same time.
+     * @param height
+     * @param side
+     */
     public SquarePrism(double height, double side) {
         super();
         setHeight(height);
         setSide(side);
         calcBaseArea();
         calcVolume();
-    }
-
-    @Override
-    public double getBaseArea() {
-        double side = getSide();
-        return side * side;
     }
 
     @Override

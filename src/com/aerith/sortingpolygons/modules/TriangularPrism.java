@@ -1,12 +1,17 @@
 package com.aerith.sortingpolygons.modules;
 
 /**
- * Class description:
+ * Class description: This is a class for the shape of triangular prism. This class extends Prism.
  *
  * @author Weilong Mao
  */
 public class TriangularPrism extends Prism {
-
+    /**
+     * The constructor of TriangularPrism. Calculate its base area and volume at the same time.
+     *
+     * @param height
+     * @param side
+     */
     public TriangularPrism(double height, double side) {
         super();
         setHeight(height);

@@ -1,11 +1,17 @@
 package com.aerith.sortingpolygons.modules;
 
 /**
- * Class description:
+ * Class description: This is a class for the shape of octagonal prism. This class extends Prism.
  *
  * @author Weilong Mao
  */
 public class OctagonalPrism extends Prism {
+    /**
+     * The constructor of OctagonalPrism. Calculate its base area and volume at the same time.
+     *
+     * @param height
+     * @param side
+     */
     public OctagonalPrism(double height, double side) {
         super();
         setHeight(height);

@@ -1,24 +1,23 @@
 package com.aerith.sortingpolygons.modules;
 
 /**
- * Class description:
+ * Class description: This is a class for the shape of square prism. This class extends Prism.
  *
  * @author Weilong Mao
  */
 public class SquarePrism extends Prism {
-
+    /**
+     * The constructor of SquarePrism. Calculate its base area and volume at the same time.
+     *
+     * @param height
+     * @param side
+     */
     public SquarePrism(double height, double side) {
         super();
         setHeight(height);
         setSide(side);
         calcBaseArea();
         calcVolume();
-    }
-
-    @Override
-    public double getBaseArea() {
-        double side = getSide();
-        return side * side;
     }
 
     @Override

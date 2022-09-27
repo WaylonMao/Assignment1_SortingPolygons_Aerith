@@ -8,12 +8,14 @@ package com.aerith.sortingpolygons.modules;
 public abstract class Prism extends Shape {
     /**
      * The side length of Prism
+     *
      * @Fields side
      **/
     private double side;
 
     /**
      * Get the side length of Prism
+     *
      * @return double
      */
     public double getSide() {
@@ -22,6 +24,7 @@ public abstract class Prism extends Shape {
 
     /**
      * Set the side length of Prism
+     *
      * @param side
      */
     public void setSide(double side) {
@@ -33,7 +36,7 @@ public abstract class Prism extends Shape {
      * All prisms' volume = baseArea * height;
      */
     @Override
-    protected void calcVolume(){
+    protected void calcVolume() {
         setVolume(getBaseArea() * getHeight());
     }
 }

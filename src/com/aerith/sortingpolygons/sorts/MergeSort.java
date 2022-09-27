@@ -5,7 +5,11 @@ import java.util.Arrays;
 import java.util.Comparator;
 
 /**
- * Class description:
+ * Class description: This class can sort arrays using merge sort.
+ * The arrays should implement Comparable. And you need a comparator instance,
+ * if you want to use comparator to do the compare part.
+ * When using this class you do not need to create instances, because they are all static methods.
+ * And they already include both ascending and descending methods.
  *
  * @author Weilong Mao
  */
@@ -39,6 +43,7 @@ public class MergeSort {
 
     private static <T extends Comparable<? super T>> void doMerge(T[] arrays, int left, int mid, int right) {
         T[] newArrays = (T[]) new Comparable[right - left + 1];
+        ;
         int leftIndex = left;
         int rightIndex = mid + 1;
         int outIndex = 0;
@@ -55,6 +60,7 @@ public class MergeSort {
 
     private static <T extends Comparable<? super T>> void doMerge(T[] arrays, int left, int mid, int right, Comparator<? super T> comparator) {
         T[] newArrays = (T[]) new Comparable[right - left + 1];
+        ;
         int leftIndex = left;
         int rightIndex = mid + 1;
         int outIndex = 0;
@@ -70,6 +76,8 @@ public class MergeSort {
         }
     }
 
+    //Des
+    //Des
     public static <T extends Comparable<? super T>> void mergeSortDesc(T[] arrays) {
         doSortDesc(arrays, 0, arrays.length - 1);
     }
@@ -98,6 +106,7 @@ public class MergeSort {
 
     private static <T extends Comparable<? super T>> void doMergeDesc(T[] arrays, int left, int mid, int right) {
         T[] newArrays = (T[]) new Comparable[right - left + 1];
+        ;
         int leftIndex = left;
         int rightIndex = mid + 1;
         int outIndex = 0;
@@ -114,6 +123,7 @@ public class MergeSort {
 
     private static <T extends Comparable<? super T>> void doMergeDesc(T[] arrays, int left, int mid, int right, Comparator<? super T> comparator) {
         T[] newArrays = (T[]) new Comparable[right - left + 1];
+        ;
         int leftIndex = left;
         int rightIndex = mid + 1;
         int outIndex = 0;

@@ -26,15 +26,15 @@ public class AppDriver {
         long start, stop;
 
         if (!new AppDriver().parseArgs(args)) {
-            System.out.println("Start...\n");
+            System.out.println("Start loading a file...\n");
             ShapeManager sm = new ShapeManager();
             start = System.currentTimeMillis();
             sm.fillShapeList(filePath);
             stop = System.currentTimeMillis();
             System.out.println("File loaded.");
-            System.out.println("Used: " + (stop - start) + "ms" + "\n");
+            System.out.println("Time is Used: " + (stop - start) + "ms" + "\n");
             Shape[] shapes = sm.getShapes();
-            System.out.println("Start sorting...\n");
+            System.out.println("Start sorting a file");
             Sorter sorter = new Sorter();
             Comparator comparator;
             if (compareType == 'h') {
@@ -54,7 +54,7 @@ public class AppDriver {
             }
 
             printShapes(shapes, compareType);
-            System.out.println("Used: " + (stop - start) + "ms");
+            System.out.println("\nTime is Used: " + (stop - start) + "ms");
 
         }
 

@@ -84,21 +84,6 @@ public class Sorter {
         }
     }
 
-
-    // Merge Sort Part
-
-    private <T extends Comparable<? super T>> void mergeSort(T[] arrays) {
-
-
-    }
-
-
-    public void swap(Object[] o, int a, int b) {
-        Object temp = o[a];
-        o[a] = o[b];
-        o[b] = temp;
-    }
-
     private void printOrderError() {
         System.out.println("Error: Use 'i' for increasing or 'd' for descending.");
     }

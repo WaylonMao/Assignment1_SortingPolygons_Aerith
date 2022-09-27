@@ -119,9 +119,9 @@ public class AppDriver {
 
     private boolean transArgs(String s) {
         boolean error = false;
-        if (s.charAt(0) != '-') {
-            System.out.println("Error: You must use '-' at the beginning or the arguments.");
-            error = true;
+        if (!s.startsWith("-") || s.length() <3 ){
+            System.out.println("Error, your command line should beginning with '-' OR length is not equal 3");
+            error = true; // stop the program.
         } else {
             if (s.toLowerCase().charAt(1) == 'f') {
                 String path = s.substring(2);

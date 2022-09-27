@@ -102,17 +102,11 @@ public class AppDriver {
         boolean a2 = transArgs(args[1]);
         boolean a3 = transArgs(args[2]);
         if (a1 || a2 || a3 || filePath == null || compareType == ' ' || sortType == ' ') {
-            if (filePath == null || compareType == ' ' || sortType == ' ') {
-                System.out.println("Missing arguments...");
-                error = true;
-                return error;
-            }
-            System.out.println("This program aborted.");
+            System.out.println("Missing arguments...This program aborted.");
             error = true;
             return error;
         } else {
             System.out.println("File is used on this sort " + filePath);
-
         }
         return error;
     }

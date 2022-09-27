@@ -5,7 +5,7 @@ package com.aerith.sortingpolygons.modules;
  *
  * @author Weilong Mao
  */
-public class TriangularPrism extends Prisms {
+public class TriangularPrism extends Prism {
 
     public TriangularPrism(double height, double side) {
         super();

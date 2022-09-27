@@ -28,7 +28,7 @@ public class AppDriver {
             System.out.println("File loaded.");
             System.out.println("Used: " + (stop - start) + "ms" + "\n");
             Shape[] shapes = sm.getShapes();
-            System.out.println("Start to sort...\n");
+            System.out.println("Start sorting...\n");
             Sorter sorter = new Sorter();
             Comparator comparator;
             if (compareType == 'h') {
@@ -54,37 +54,29 @@ public class AppDriver {
 
 
     }
+    // Using to print shape
 
     private static void printShapes(Shape[] shapes, char type) {
-        boolean lastPrinted = false;
-        switch (type) {
-            case 'h': {
-                for (int i = 0; i < shapes.length; i += 1000) {
-                    if (i == shapes.length - 1) lastPrinted = true;
-                    System.out.println(shapes[i].getHeight());
-                }
-                if (!lastPrinted) System.out.println(shapes[shapes.length - 1].getHeight());
+        double value = 0;
+        int n = shapes.length;
+        for (int i = 0; i < n; i++) {
+            if (compareType == 'h') {
+                value = shapes[i].getHeight();
+            } else if (compareType == 'v') {
+                value = shapes[i].getVolume();
+            } else if (compareType == 'a') {
+                value = shapes[i].getBaseArea();
             }
-            break;
-            case 'a': {
-                for (int i = 0; i < shapes.length; i += 1000) {
-                    if (i == shapes.length - 1) lastPrinted = true;
-                    System.out.println(shapes[i].getBaseArea());
-                }
-                if (!lastPrinted) System.out.println(shapes[shapes.length - 1].getBaseArea());
+            if (i == 0) {
+                System.out.println("The first sorted value is " + value);
+            } else if (i % 1000 == 999) {
+                System.out.println("The " + (i + 1) + "th sorted value is " + value);
+            } else if (i == n - 1) {
+                System.out.println("The last sorted value is " + value);
             }
-            break;
-            case 'v': {
-                for (int i = 0; i < shapes.length; i += 1000) {
-                    if (i == shapes.length - 1) lastPrinted = true;
-                    System.out.println(shapes[i].getVolume());
-                }
-                if (!lastPrinted) System.out.println(shapes[shapes.length - 1].getVolume());
-            }
-            break;
+
         }
     }
-
     private boolean parseArgs(String[] args) {
         boolean error = false;
         if (args.length < 3) {
@@ -112,9 +104,8 @@ public class AppDriver {
             error = true;
             return error;
         } else {
-            System.out.println(filePath);
-            System.out.println(compareType);
-            System.out.println(sortType);
+            System.out.println("File is used on this sort " + filePath);
+
         }
         return error;
     }
@@ -139,12 +130,15 @@ public class AppDriver {
                 switch (s.toLowerCase().charAt(2)) {
                     case 'v':
                         compareType = 'v';
+                        System.out.println("Compared type is volume");
                         break;
                     case 'h':
                         compareType = 'h';
+                        System.out.println("Compared type is height");
                         break;
                     case 'a':
                         compareType = 'a';
+                        System.out.println("Compared type is base area");
                         break;
                     default: {
                         error = true;
@@ -157,21 +151,27 @@ public class AppDriver {
                 switch (s.toLowerCase().charAt(2)) {
                     case 'b':
                         sortType = 'b';
+                        System.out.println("Method sort is Bubble");
                         break;
                     case 's':
                         sortType = 's';
+                        System.out.println("Method sort is Selection Sort");
                         break;
                     case 'i':
                         sortType = 'i';
+                        System.out.println("Method sort is Insertion Sort");
                         break;
                     case 'm':
                         sortType = 'm';
+                        System.out.println("Method sort is Merge Sort");
                         break;
                     case 'q':
                         sortType = 'q';
+                        System.out.println("Method sort is Quicksort");
                         break;
                     case 'z':
                         sortType = 'z';
+                        System.out.println("Method sort is Shell Sort");
                         break;
                     default: {
                         error = true;

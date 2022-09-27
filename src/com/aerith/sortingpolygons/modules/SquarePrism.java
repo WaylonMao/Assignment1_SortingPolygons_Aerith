@@ -5,7 +5,7 @@ package com.aerith.sortingpolygons.modules;
  *
  * @author Weilong Mao
  */
-public class SquarePrism extends Prisms {
+public class SquarePrism extends Prism {
 
     public SquarePrism(double height, double side) {
         super();

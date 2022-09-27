@@ -5,7 +5,7 @@ package com.aerith.sortingpolygons.modules;
  *
  * @author Weilong Mao
  */
-public class OctagonalPrism extends Prisms {
+public class OctagonalPrism extends Prism {
     public OctagonalPrism(double height, double side) {
         super();
         setHeight(height);

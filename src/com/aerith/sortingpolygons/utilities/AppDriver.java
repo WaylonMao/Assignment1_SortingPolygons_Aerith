@@ -118,10 +118,10 @@ public class AppDriver {
     }
 
     private boolean transArgs(String s) {
-        boolean error = false;
-        if (!s.startsWith("-") || s.length() <3 ){
-            System.out.println("Error, your command line should beginning with '-' OR length is not equal 3");
-            error = true; // stop the program.
+        boolean error = false; // If error == true, this program will stop.
+        if (!s.startsWith("-")){
+            System.out.println("Error: You must use '-' at the beginning of the arguments.");
+            error = true;
         } else {
             if (s.toLowerCase().charAt(1) == 'f') {
                 String path = s.substring(2);
@@ -134,57 +134,68 @@ public class AppDriver {
                 }
             }
             if (s.toLowerCase().charAt(1) == 't') {
-                switch (s.toLowerCase().charAt(2)) {
-                    case 'v':
-                        compareType = 'v';
-                        System.out.println("Compared type is volume");
-                        break;
-                    case 'h':
-                        compareType = 'h';
-                        System.out.println("Compared type is height");
-                        break;
-                    case 'a':
-                        compareType = 'a';
-                        System.out.println("Compared type is base area");
-                        break;
-                    default: {
-                        error = true;
-                        System.out.println("Error: Compare Type only can be Base[A]rea, [H]eight and [V]olume");
-                    }
+                if (s.length() < 3) {
+                    error = true;
+                    System.out.println("Missing Compare Type...");
+                }else{
 
+                    switch (s.toLowerCase().charAt(2)) {
+                        case 'v':
+                            compareType = 'v';
+                            System.out.println("Compared type is volume");
+                            break;
+                        case 'h':
+                            compareType = 'h';
+                            System.out.println("Compared type is height");
+                            break;
+                        case 'a':
+                            compareType = 'a';
+                            System.out.println("Compared type is base area");
+                            break;
+                        default: {
+                            error = true;
+                            System.out.println("Error: Compare Type only can be Base[A]rea, [H]eight and [V]olume");
+                        }
+
+                    }
                 }
             }
             if (s.toLowerCase().charAt(1) == 's') {
-                switch (s.toLowerCase().charAt(2)) {
-                    case 'b':
-                        sortType = 'b';
-                        System.out.println("Method sort is Bubble");
-                        break;
-                    case 's':
-                        sortType = 's';
-                        System.out.println("Method sort is Selection Sort");
-                        break;
-                    case 'i':
-                        sortType = 'i';
-                        System.out.println("Method sort is Insertion Sort");
-                        break;
-                    case 'm':
-                        sortType = 'm';
-                        System.out.println("Method sort is Merge Sort");
-                        break;
-                    case 'q':
-                        sortType = 'q';
-                        System.out.println("Method sort is Quicksort");
-                        break;
-                    case 'z':
-                        sortType = 'z';
-                        System.out.println("Method sort is Shell Sort");
-                        break;
-                    default: {
-                        error = true;
-                        System.out.println("Error: Sort Type only can be [B]ubble, [S]election, [I]nsertion, [M]erge, [Q]uick and [Z]Shell Sort");
-                    }
+                if (s.length() < 3) {
+                    error = true;
+                    System.out.println("Missing Sort Type...");
+                } else {
+                    switch (s.toLowerCase().charAt(2)) {
+                        case 'b':
+                            sortType = 'b';
+                            System.out.println("Method sort is Bubble");
+                            break;
+                        case 's':
+                            sortType = 's';
+                            System.out.println("Method sort is Selection Sort");
+                            break;
+                        case 'i':
+                            sortType = 'i';
+                            System.out.println("Method sort is Insertion Sort");
+                            break;
+                        case 'm':
+                            sortType = 'm';
+                            System.out.println("Method sort is Merge Sort");
+                            break;
+                        case 'q':
+                            sortType = 'q';
+                            System.out.println("Method sort is Quicksort");
+                            break;
+                        case 'z':
+                            sortType = 'z';
+                            System.out.println("Method sort is Shell Sort");
+                            break;
+                        default: {
+                            error = true;
+                            System.out.println("Error: Sort Type only can be [B]ubble, [S]election, [I]nsertion, [M]erge, [Q]uick and [Z]Shell Sort");
+                        }
 
+                    }
                 }
             }
         }

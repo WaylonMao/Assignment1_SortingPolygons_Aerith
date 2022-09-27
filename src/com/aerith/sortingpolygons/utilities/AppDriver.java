@@ -6,9 +6,15 @@ import java.io.File;
 import java.util.Comparator;
 
 /**
- * Class description:
+ * Class description: This class is the main class of this project. It is for getting Shapes for a txt file, and sorting
+ * them by different types and sorting methods. When running this program, you need provide args.
+ * <p>
+ * -f or -F : Followed by the file path and file name. e.g. -F"D:/Floder/some.txt"
+ * -t or -T : Followed by compare type: Base[A]rea, [H]eight and [V]olume. e.g. -tH means compare by height.
+ * -s or -S : Followed by sort method: [B]ubble, [S]election, [I]nsertion, [M]erge, [Q]uick and [Z]Shell Sort.
+ * e.g. -Sq means sorting by quick sort method.
  *
- * @author Weilong Mao
+ * @author Weilong Mao, Hoa Le
  */
 public class AppDriver {
     private static String filePath;
@@ -77,6 +83,7 @@ public class AppDriver {
 
         }
     }
+
     private boolean parseArgs(String[] args) {
         boolean error = false;
         if (args.length < 3) {
@@ -175,7 +182,7 @@ public class AppDriver {
                         break;
                     default: {
                         error = true;
-                        System.out.println("Error: Sort Type only can be [B]ubble, [S]election, [I]nsertion, [M]erge, [Q]uick and [Z]");
+                        System.out.println("Error: Sort Type only can be [B]ubble, [S]election, [I]nsertion, [M]erge, [Q]uick and [Z]Shell Sort");
                     }
 
                 }

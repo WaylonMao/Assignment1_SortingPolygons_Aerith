@@ -24,26 +24,26 @@ public class MergeSort {
     }
 
     private static <T extends Comparable<? super T>> void doSort(T[] arrays, int left, int right) {
-        if (left >= right) return;
-
-        int mid = (left + right) >>> 1;
-        doSort(arrays, left, mid);
-        doSort(arrays, mid + 1, right);
-        doMerge(arrays, left, mid, right);
+        if (left < right) {
+            int mid = (left + right) >>> 1;
+            doSort(arrays, left, mid);
+            doSort(arrays, mid + 1, right);
+            doMerge(arrays, left, mid, right);
+        }
     }
 
     private static <T extends Comparable<? super T>> void doSort(T[] arrays, int left, int right, Comparator<? super T> comparator) {
-        if (left >= right) return;
-
-        int mid = (left + right) >>> 1;
-        doSort(arrays, left, mid, comparator);
-        doSort(arrays, mid + 1, right, comparator);
-        doMerge(arrays, left, mid, right, comparator);
+        if (left < right) {
+            int mid = (left + right) >>> 1;
+            doSort(arrays, left, mid, comparator);
+            doSort(arrays, mid + 1, right, comparator);
+            doMerge(arrays, left, mid, right, comparator);
+        }
     }
 
     private static <T extends Comparable<? super T>> void doMerge(T[] arrays, int left, int mid, int right) {
         T[] newArrays = (T[]) new Comparable[right - left + 1];
-        ;
+
         int leftIndex = left;
         int rightIndex = mid + 1;
         int outIndex = 0;
@@ -60,7 +60,7 @@ public class MergeSort {
 
     private static <T extends Comparable<? super T>> void doMerge(T[] arrays, int left, int mid, int right, Comparator<? super T> comparator) {
         T[] newArrays = (T[]) new Comparable[right - left + 1];
-        ;
+
         int leftIndex = left;
         int rightIndex = mid + 1;
         int outIndex = 0;
@@ -76,8 +76,7 @@ public class MergeSort {
         }
     }
 
-    //Des
-    //Des
+
     public static <T extends Comparable<? super T>> void mergeSortDesc(T[] arrays) {
         doSortDesc(arrays, 0, arrays.length - 1);
     }
@@ -87,26 +86,26 @@ public class MergeSort {
     }
 
     private static <T extends Comparable<? super T>> void doSortDesc(T[] arrays, int left, int right) {
-        if (left >= right) return;
-
-        int mid = (left + right) >>> 1;
-        doSortDesc(arrays, left, mid);
-        doSortDesc(arrays, mid + 1, right);
-        doMergeDesc(arrays, left, mid, right);
+        if (left < right) {
+            int mid = (left + right) >>> 1;
+            doSortDesc(arrays, left, mid);
+            doSortDesc(arrays, mid + 1, right);
+            doMergeDesc(arrays, left, mid, right);
+        }
     }
 
     private static <T extends Comparable<? super T>> void doSortDesc(T[] arrays, int left, int right, Comparator<? super T> comparator) {
-        if (left >= right) return;
-
-        int mid = (left + right) >>> 1;
-        doSortDesc(arrays, left, mid, comparator);
-        doSortDesc(arrays, mid + 1, right, comparator);
-        doMergeDesc(arrays, left, mid, right, comparator);
+        if (left < right) {
+            int mid = (left + right) >>> 1;
+            doSortDesc(arrays, left, mid, comparator);
+            doSortDesc(arrays, mid + 1, right, comparator);
+            doMergeDesc(arrays, left, mid, right, comparator);
+        }
     }
 
     private static <T extends Comparable<? super T>> void doMergeDesc(T[] arrays, int left, int mid, int right) {
         T[] newArrays = (T[]) new Comparable[right - left + 1];
-        ;
+
         int leftIndex = left;
         int rightIndex = mid + 1;
         int outIndex = 0;
@@ -123,7 +122,7 @@ public class MergeSort {
 
     private static <T extends Comparable<? super T>> void doMergeDesc(T[] arrays, int left, int mid, int right, Comparator<? super T> comparator) {
         T[] newArrays = (T[]) new Comparable[right - left + 1];
-        ;
+
         int leftIndex = left;
         int rightIndex = mid + 1;
         int outIndex = 0;

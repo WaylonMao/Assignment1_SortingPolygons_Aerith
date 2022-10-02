@@ -5,7 +5,7 @@ import com.aerith.sortingpolygons.modules.Shape;
 import java.util.Comparator;
 
 /**
- * Class description:
+ * Class description: This class is a Comparator for compare Shape objects by their volume.
  *
  * @author Weilong Mao
  */

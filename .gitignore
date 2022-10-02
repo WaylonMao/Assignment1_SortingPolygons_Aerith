@@ -51,6 +51,3 @@ build/
 *.diff
 *.patch
 *.tmp
-
-# ForThisProject
-*.txt

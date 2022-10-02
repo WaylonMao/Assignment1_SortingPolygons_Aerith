@@ -15,11 +15,23 @@ import java.util.StringTokenizer;
  */
 public class ShapeManager {
 
+    /**
+     * This arrays stores the Shape objects that need to be managed.
+     * @Fields shapes
+     */
     private Shape[] shapes;
 
+    /**
+     * Default constructor for ShapeManager.
+     */
     public ShapeManager() {
     }
 
+    /**
+     * This method use reflection to get Shape objects from a txt file.
+     *
+     * @param filePath
+     */
     public void fillShapeList(String filePath) {
         try {
             BufferedReader fin = new BufferedReader(new FileReader(filePath));
@@ -32,15 +44,15 @@ public class ShapeManager {
             while (st.hasMoreTokens()) {
                 Object o;
                 String className = st.nextToken();
-                Class cls = Class.forName("com.aerith.sortingpolygons.modules." + className);
+                Class<?> cls = Class.forName("com.aerith.sortingpolygons.modules." + className);
 
-                Class paramTypes[] = new Class[2];
+                Class<?>[] paramTypes = new Class[2];
                 paramTypes[0] = Double.TYPE;
                 paramTypes[1] = Double.TYPE;
 
-                Constructor ct = cls.getConstructor(paramTypes);
+                Constructor<?> ct = cls.getConstructor(paramTypes);
 
-                Object argList[] = new Object[2];
+                Object[] argList = new Object[2];
                 argList[0] = Double.parseDouble(st.nextToken());
                 argList[1] = Double.parseDouble(st.nextToken());
                 o = ct.newInstance(argList);
@@ -62,6 +74,11 @@ public class ShapeManager {
         }
     }
 
+    /**
+     * Get Shape arrays.
+     *
+     * @return Shape arrays
+     */
     public Shape[] getShapes() {
         return shapes;
     }

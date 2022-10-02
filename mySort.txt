@@ -1,0 +1,22 @@
+1. Describle: Shell sort is generalization of insertion sort, which overcomes the drawnback of
+   insertion sort by allowing the exchange of items that are far apart.
+
+2. Algorithm: we can simply divide Shell sort into five steps
+
+Step 1 − Initialize the value of gap size. Example: h
+Step 2 − Divide the list into smaller sub-part. Each must have equal intervals to h
+Step 3 − Sort these sub-lists using insertion sort
+Step 4 − Repeat this step 2 until the list is sorted.
+Step 5 – Print a sorted list
+
+3. Analyst:
+   a.Time complexity: the worst case senario with time complexity on Shell sort is O(n^2).
+	 However, this time complexity depends on the way to reduce gaps. The best time complexity
+	 is O(nlogn).
+
+   b.Space complexity: Shell sort uses in-space memory to hold a data when doing a sort.
+	Therefore, the space complexity is O(1).
+
+   c. Choosing gap size: there are many ways to reduce gap that implement depend on each developer
+
+

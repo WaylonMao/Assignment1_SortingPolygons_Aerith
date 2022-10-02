@@ -6,11 +6,11 @@ import java.util.Comparator;
 
 
 /**
- * Class description:
+ * Class description: This Class is for call different sorting method by arguments.
  *
  * @author Weilong Mao
  */
-@SuppressWarnings("ALL")
+
 public class Sorter {
 
     public Sorter() {
@@ -85,7 +85,7 @@ public class Sorter {
     }
 
     private void printOrderError() {
-        System.out.println("Error: Use 'i' for increasing or 'd' for descending.");
+        System.out.println("Error: Use 'a' for ascending or 'd' for descending.");
     }
 
 

@@ -6,17 +6,32 @@ import java.util.Comparator;
 
 
 /**
- * Class description: This Class is for call different sorting method by arguments.
+ * Class clarification: This Class is used to manage sort type on this application
  *
+ * @author Hoa Le
  * @author Weilong Mao
+ * @author Hu Peng
+ * @author Chris Wang
+ *
+ * @version 1.0 October 07, 2022
  */
 
 public class Sorter {
+    /**
+     * No argument constructor
+     */
 
     public Sorter() {
 
     }
-
+    /**
+     * Method uses to manage all sort methods included Comparator interface to compare two shapes by their base area and height
+     * @param <T> The generic type
+     * @param arrays the arrays use to hold all shapes
+     * @param comparator the type of comparator uses to sort
+     * @param method the sort method uses to sort
+     * @param order the sort order use to sort
+     */
     public <T extends Comparable<? super T>> void sort(T[] arrays, Comparator<? super T> comparator, char method, char order) {
         switch (method) {
             case 'i':
@@ -50,7 +65,14 @@ public class Sorter {
         }
     }
 
-
+    /**
+     *
+     * Method uses to manage all sort methods and uses compareTo() method of Comparable interface to compare two shapes by their height
+     * @param <T> The generic type
+     * @param arrays the arrays use to hold all shapes
+     * @param method the sort method uses to sort
+     * @param order the sort order use to sort
+     */
     public <T extends Comparable<? super T>> void sort(T[] arrays, char method, char order) {
         switch (method) {
             case 'i':

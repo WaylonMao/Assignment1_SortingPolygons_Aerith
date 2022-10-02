@@ -2,116 +2,111 @@ package com.aerith.sortingpolygons.modules;
 
 
 /**
- * Class description: This is an abstract comparable class. Same as its name, this is for shapes to extend.
+ * Class clarification: This is an abstract comparable class. Same as its name, this is for shapes to extend.
  *
+ * @author Hoa Le
  * @author Weilong Mao
+ * @author Hu Peng
+ * @author Chris Wang
+ *
+ * @version 1.0 October 07, 2022
+ *
+ *
  */
 public abstract class Shape implements Comparable<Shape> {
-    /**
-     * The height of Shape
-     *
-     * @Fields height
-     **/
+
     private double height;
-    /**
-     * The volume of Shape
-     *
-     * @Fields volume
-     **/
+
     private double volume;
-    /**
-     * The base area of Shape
-     *
-     * @Fields baseArea
-     **/
+
     private double baseArea;
 
     /**
-     * Initializes the newly created com.aerith.sortingpolygons.modules.Shape
+     * Initializes the newly created allshapes.Shape
      */
     public Shape() {
 
     }
-
     /**
-     * Set the height of Shape.
-     *
-     * @return void
-     * @Param height
-     **/
-    public void setHeight(double height) {
-        this.height = height;
-    }
-
-    /**
-     * Get the height of Shape.
-     *
-     * @return double
-     **/
+     * Method to get a height from shape
+     * @return the height shape
+     */
     public double getHeight() {
         return height;
     }
 
     /**
-     * Set the base area of Shape.
-     *
-     * @return void
-     * @Param baseArea
-     **/
-    protected void setBaseArea(double baseArea) {
-        this.baseArea = baseArea;
-    }
+     * Method to set height of shape
+     * @param height the height of shape
+     */
 
-    /**
-     * Get the base area of Shape.
-     *
-     * @return double
-     **/
-    public double getBaseArea() {
-        return baseArea;
+    public void setHeight(double height) {
+        this.height = height;
     }
-
     /**
-     * Set the volume of Shape.
-     *
-     * @return void
-     * @Param volume
-     **/
-    protected void setVolume(double volume) {
-        this.volume = volume;
-    }
+     * Method to calculate volume of shape
+     * @return volume the volume of shape
+     */
 
-    /**
-     * Get the volume of Shape.
-     *
-     * @return double
-     **/
     public double getVolume() {
         return volume;
     }
 
     /**
-     * To calculate the volume of Shape.
+     * Method to set volume of shape
      *
-     * @return void
-     **/
+     * @param volume the volume of shape
+     */
+
+    public void setVolume(double volume) {
+        this.volume = volume;
+    }
+    /**
+     * Method to calculate base area of shape
+     * @return baseArea the baseArea of shape
+     */
+
+    public double getBaseArea() {
+        return baseArea;
+    }
+
+    /**
+     * Method to set base area of shape
+     * @return baseArea the baseArea of shape
+     */
+
+    public void setBaseArea(double baseArea) {
+        this.baseArea = baseArea;
+    }
+
+    /**
+     * Abstract method use to calculate volume of shape
+     */
+
     protected abstract void calcVolume();
 
     /**
-     * To calculate the base area of Shape.
-     *
-     * @return void
-     **/
+     * Abstract method uses to calculate base area of shape
+     */
+
     protected abstract void calcBaseArea();
 
     /**
      * Compare to another Shape object by height.
      *
      * @return int If greater than the other, return 1. If less than the other, return -1. If both are equal, return 0.
+     *
      * @Param that The Shape object compared.
      **/
+
     @Override
     public int compareTo(Shape that) {
-        return (int) (this.height - that.height);
+        if (this.height > that.height) {
+            return 1;
+        } else if (this.height < that.height) {
+            return -1;
+        } else {
+            return 0;
+        }
     }
 }

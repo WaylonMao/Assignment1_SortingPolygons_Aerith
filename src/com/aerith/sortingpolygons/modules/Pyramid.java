@@ -1,63 +1,76 @@
 package com.aerith.sortingpolygons.modules;
 
 /**
- * Class description:
+ * Class description: This is a class for the shape of Pyramid. This class extends Shape.
  *
+ * @author Hoa Le
  * @author Weilong Mao
+ * @author Hu Peng
+ * @author Chris Wang
+ *
+ * @version 1.0 October 07, 2022
+ *
  */
-public class Pyramid extends Shape {
+
+public class Pyramid extends Shape{
     /**
-     * The radius of Pyramid.
      *
-     * @Fields side
+     * @Fields side the side of Pyramid
      **/
     private double side;
 
     /**
      * The constructor of Pyramid. Calculate its base area and volume at the same time.
      *
-     * @param height
-     * @param side
+     * @param height the height of Pyramid
+     * @param side the side of Pyramid
      */
-    public Pyramid(double height, double side) {
+
+    public Pyramid (double height, double side){
         super();
         setHeight(height);
         setSide(side);
         calcBaseArea();
         calcVolume();
-    }
 
+    }
     /**
-     * Get the side length of Pyramid.
-     *
-     * @return double
+     * Method uses to get side of Pyramid
+     * @return the side of Pyramid
      */
+
     public double getSide() {
         return side;
     }
 
     /**
-     * Set the side length of Pyramid.
-     *
-     * @param side
+     * Method uses to set side of Pyramid
+     * @return the side of Pyramid
      */
-    private void setSide(double side) {
+
+    public void setSide(double side) {
         this.side = side;
     }
-
     /**
+     * Method uses to calculate volume of Pyramid
+     *
      * Pyramid's volume = 1/3 * s^2 * h
      */
+
     @Override
     protected void calcVolume() {
-        setVolume(getBaseArea() * getHeight() / 3.0);
+        setVolume(getBaseArea() * getHeight()/3.0);
     }
 
     /**
+     * Method uses to calculate base area of Pyramid
+     *
      * Pyramid's base area = s^2
      */
+
     @Override
     protected void calcBaseArea() {
         setBaseArea(side * side);
     }
+
 }

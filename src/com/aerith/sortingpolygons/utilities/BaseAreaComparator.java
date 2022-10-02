@@ -5,9 +5,15 @@ import com.aerith.sortingpolygons.modules.Shape;
 import java.util.Comparator;
 
 /**
- * Class description: This class is a Comparator for compare Shape objects by their base area.
+ * Class description: This class is used to compare base area between two shape. it extends from Comparator interface.
  *
+ * @author Hoa Le
  * @author Weilong Mao
+ * @author Hu Peng
+ * @author Chris Wang
+ *
+ * @version 1.0 October 07, 2022
+ *
  */
 public class BaseAreaComparator implements Comparator<Shape> {
     @Override

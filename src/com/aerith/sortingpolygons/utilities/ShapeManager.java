@@ -9,9 +9,16 @@ import java.util.StringTokenizer;
 
 
 /**
- * Class description:
+ * Class clarification: This class is used for managing all shapes. It uses reflection to generate all shapes object
+ * 						and stores it on array.
  *
+ * @author Hoa Le
  * @author Weilong Mao
+ * @author Hu Peng
+ * @author Chris Wang
+ *
+ * @version 1.0 October 07, 2022
+ *
  */
 public class ShapeManager {
 
@@ -30,7 +37,7 @@ public class ShapeManager {
     /**
      * This method use reflection to get Shape objects from a txt file.
      *
-     * @param filePath
+     * @param filePath the variable sore txt file
      */
     public void fillShapeList(String filePath) {
         try {
@@ -59,18 +66,19 @@ public class ShapeManager {
                 shapes[index] = (Shape) o;
                 index++;
             }
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
+        } catch (FileNotFoundException e) {
+            System.out.println("File is not found");
+        } catch (IOException | ClassNotFoundException e) {
+            System.out.println("Class is not found");
             e.printStackTrace();
         } catch (NoSuchMethodException e) {
-            e.printStackTrace();
+            System.out.println(" Method is not found");
         } catch (InvocationTargetException e) {
-            e.printStackTrace();
+            System.out.println(" Something wrong with wraps an exception");
         } catch (InstantiationException e) {
-            e.printStackTrace();
+            System.out.println(" Class object can not instantiated");
         } catch (IllegalAccessException e) {
-            e.printStackTrace();
+            System.out.println ("Does not have access to the definition of the specified class, field, method or constructor.");
         }
     }
 

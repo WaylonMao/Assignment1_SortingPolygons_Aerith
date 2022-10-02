@@ -1,6 +1,10 @@
-package com.aerith.sortingpolygons.utilities;
+package com.aerith.sortingpolygons.Application;
 
 import com.aerith.sortingpolygons.modules.Shape;
+import com.aerith.sortingpolygons.utilities.BaseAreaComparator;
+import com.aerith.sortingpolygons.utilities.ShapeManager;
+import com.aerith.sortingpolygons.utilities.Sorter;
+import com.aerith.sortingpolygons.utilities.VolumeComparator;
 
 import java.io.File;
 import java.util.Comparator;
@@ -62,11 +66,11 @@ public class AppDriver {
             sm.fillShapeList(filePath);
             stop = System.currentTimeMillis();
             System.out.println("File loaded.");
-            System.out.println("Time is Used: " + (stop - start) + "ms" + "\n");
+            System.out.println("Total time is used to read a file: " + (stop - start) + "ms" + "\n");
 
             // Get Shape arrays from ShapeManager.
             Shape[] shapes = sm.getShapes();
-            System.out.println("Start sorting a file");
+            System.out.println("Start sorting a file.....");
             Sorter sorter = new Sorter();
             Comparator comparator;
             if (compareType == 'h') {
@@ -85,7 +89,7 @@ public class AppDriver {
                 stop = System.currentTimeMillis();
             }
             printShapes(shapes, compareType);
-            System.out.println("\nTime is Used: " + (stop - start) + "ms");
+            System.out.println("\nTotal time was taken to sort a file is:  " + (stop - start) + "ms");
         }
     }
 
@@ -93,13 +97,13 @@ public class AppDriver {
      * This method is used to print out Shapes from Arrays by height, base area or volume.
      *
      * @param shapes
-     * @param type
+     * @param compareType
      */
-    private static void printShapes(Shape[] shapes, char type) {
+    private static void printShapes(Shape[] shapes, char compareType) {
         double value = 0;
         int n = shapes.length;
         for (int i = 0; i < n; i++) {
-            switch (type) {
+            switch (compareType) {
                 case 'h':
                     value = shapes[i].getHeight();
                     break;
@@ -124,8 +128,8 @@ public class AppDriver {
      * This method is for verifying arguments in command line. And it may call transArgs method to verify each part of
      * the arguments.
      *
-     * @param args
-     * @return
+     * @param args the string store user input
+     * @return error the error when command line is wrong
      */
     private boolean parseArgs(String[] args) {
         boolean error = false;
@@ -158,8 +162,8 @@ public class AppDriver {
      * This method can transfer arguments to the file path, compare type, and sorting method.
      * And at the same time, it also verifies them and print out the relevant messages.
      *
-     * @param arg
-     * @return
+     * @param arg the string store user input
+     * @return error the error when command line is wrong
      */
     private boolean transArgs(String arg) {
         boolean error = false;

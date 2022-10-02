@@ -1,3 +1,3 @@
 Manifest-Version: 1.0
-Main-Class: com.aerith.sortingpolygons.utilities.AppDriver
+Main-Class: com.aerith.sortingpolygons.Application.AppDriver
 

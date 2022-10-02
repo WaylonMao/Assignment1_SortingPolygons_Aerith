@@ -14,25 +14,57 @@ import java.util.Comparator;
  * -s or -S : Followed by sort method: [B]ubble, [S]election, [I]nsertion, [M]erge, [Q]uick and [Z]Shell Sort.
  * e.g. -Sq means sorting by quick sort method.
  *
- * @author Weilong Mao, Hoa Le
+ * @author Weilong Mao, Hoa Le, Chris Wang, Hu Peng
  */
 public class AppDriver {
+    /**
+     * This String variable is used to store the file path.
+     * @Fields filePath
+     */
     private static String filePath;
+
+    /**
+     * This char variable is used to store the compare type. Accepted value can be
+     * 'h'(height), 'a'(base area) and 'v'(volume). (Ignore case.)
+     *
+     * @Fields compareType
+     */
     private static char compareType = ' ';
+
+    /**
+     * This char variable is used to store the sort type. Accepted value can be
+     * 'b'(Bubble Sort), 's'(Selection Sort), 'i'(Insertion Sort), 'm'(Merge Sort), 'q'(Quick Sort) and 'z'(Shell Sort).
+     * (Ignore case.)
+     *
+     * @Fields sortType
+     */
     private static char sortType = ' ';
+
+    /**
+     * This constant only accept two value: 'a' for ascending and 'd' for descending.
+     * For this project's requirement, only descending is required. But we added this constant to leave room for future
+     * improvements to the code if ascending ordering is required.
+     *
+     * @Fields SORT_ORDER
+     */
     private static final char SORT_ORDER = 'd';
 
     public static void main(String[] args) {
         long start, stop;
 
+        // If no error during getting arguments, then continue this program.
         if (!new AppDriver().parseArgs(args)) {
             System.out.println("Start loading a file...\n");
             ShapeManager sm = new ShapeManager();
             start = System.currentTimeMillis();
+
+            // Loading Shape objects from this txt file.
             sm.fillShapeList(filePath);
             stop = System.currentTimeMillis();
             System.out.println("File loaded.");
             System.out.println("Time is Used: " + (stop - start) + "ms" + "\n");
+
+            // Get Shape arrays from ShapeManager.
             Shape[] shapes = sm.getShapes();
             System.out.println("Start sorting a file");
             Sorter sorter = new Sorter();
@@ -52,26 +84,31 @@ public class AppDriver {
                 sorter.sort(shapes, comparator, sortType, SORT_ORDER);
                 stop = System.currentTimeMillis();
             }
-
             printShapes(shapes, compareType);
             System.out.println("\nTime is Used: " + (stop - start) + "ms");
-
         }
-
-
     }
-    // Using to print shape
 
+    /**
+     * This method is used to print out Shapes from Arrays by height, base area or volume.
+     *
+     * @param shapes
+     * @param type
+     */
     private static void printShapes(Shape[] shapes, char type) {
         double value = 0;
         int n = shapes.length;
         for (int i = 0; i < n; i++) {
-            if (compareType == 'h') {
-                value = shapes[i].getHeight();
-            } else if (compareType == 'v') {
-                value = shapes[i].getVolume();
-            } else if (compareType == 'a') {
-                value = shapes[i].getBaseArea();
+            switch (type) {
+                case 'h':
+                    value = shapes[i].getHeight();
+                    break;
+                case 'v':
+                    value = shapes[i].getVolume();
+                    break;
+                case 'a':
+                    value = shapes[i].getBaseArea();
+                    break;
             }
             if (i == 0) {
                 System.out.println("The first sorted value is " + value);
@@ -80,10 +117,16 @@ public class AppDriver {
             } else if (i == n - 1) {
                 System.out.println("The last sorted value is " + value);
             }
-
         }
     }
 
+    /**
+     * This method is for verifying arguments in command line. And it may call transArgs method to verify each part of
+     * the arguments.
+     *
+     * @param args
+     * @return
+     */
     private boolean parseArgs(String[] args) {
         boolean error = false;
         if (args.length < 3) {
@@ -111,14 +154,21 @@ public class AppDriver {
         return error;
     }
 
-    private boolean transArgs(String s) {
-        boolean error = false; // If error == true, this program will stop.
-        if (!s.startsWith("-")){
+    /**
+     * This method can transfer arguments to the file path, compare type, and sorting method.
+     * And at the same time, it also verifies them and print out the relevant messages.
+     *
+     * @param arg
+     * @return
+     */
+    private boolean transArgs(String arg) {
+        boolean error = false;
+        if (!arg.startsWith("-")) {
             System.out.println("Error: You must use '-' at the beginning of the arguments.");
             error = true;
         } else {
-            if (s.toLowerCase().charAt(1) == 'f') {
-                String path = s.substring(2);
+            if (arg.toLowerCase().charAt(1) == 'f') {
+                String path = arg.substring(2);
                 File file = new File(path);
                 if (!file.exists()) {
                     System.out.println("Error: File is not exist.");
@@ -127,13 +177,12 @@ public class AppDriver {
                     this.filePath = path;
                 }
             }
-            if (s.toLowerCase().charAt(1) == 't') {
-                if (s.length() < 3) {
+            if (arg.toLowerCase().charAt(1) == 't') {
+                if (arg.length() < 3) {
                     error = true;
                     System.out.println("Missing Compare Type...");
-                }else{
-
-                    switch (s.toLowerCase().charAt(2)) {
+                } else {
+                    switch (arg.toLowerCase().charAt(2)) {
                         case 'v':
                             compareType = 'v';
                             System.out.println("Compared type is volume");
@@ -150,16 +199,15 @@ public class AppDriver {
                             error = true;
                             System.out.println("Error: Compare Type only can be Base[A]rea, [H]eight and [V]olume");
                         }
-
                     }
                 }
             }
-            if (s.toLowerCase().charAt(1) == 's') {
-                if (s.length() < 3) {
+            if (arg.toLowerCase().charAt(1) == 's') {
+                if (arg.length() < 3) {
                     error = true;
                     System.out.println("Missing Sort Type...");
                 } else {
-                    switch (s.toLowerCase().charAt(2)) {
+                    switch (arg.toLowerCase().charAt(2)) {
                         case 'b':
                             sortType = 'b';
                             System.out.println("Method sort is Bubble");
@@ -188,12 +236,10 @@ public class AppDriver {
                             error = true;
                             System.out.println("Error: Sort Type only can be [B]ubble, [S]election, [I]nsertion, [M]erge, [Q]uick and [Z]Shell Sort");
                         }
-
                     }
                 }
             }
         }
         return error;
     }
-
 }

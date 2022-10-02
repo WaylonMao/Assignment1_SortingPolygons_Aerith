@@ -3,11 +3,11 @@ package com.aerith.sortingpolygons.sorts;
 import java.util.Comparator;
 
 /**
- * Class description: This class uses to sort objects store in array using Selection sort method.
- * User can choose descending or ascending order
- * When using this class you do not need to create instances, because they are all static methods.
- * The arrays should implement Comparable. And you need a comparator instance,
+ * Class description: This class can sort comparable array by using selection sort.
+ * The array should implement Comparable. And you need a comparator instance,
  * if you want to use comparator to do the compare part.
+ * When using this class you do not need to create instances, because they are all static methods.
+ * And this class already include both ascending and descending methods.
  *
  * @author Weilong Mao
  * @author Hoa Le
@@ -17,94 +17,93 @@ import java.util.Comparator;
  */
 public class SelectionSort {
 
-
     /**
-     * Method use to sort objects sore in array in descending order, it will call when user sorts by volume or base area
-     * @param arrays the shape array store objects to sort
-     * @param comparator the comparator is used to sort
-     * @param <T>
+     * Method uses to sort objects sore in comparable array in descending order, it will compare array's elements by comparator.
+     *
+     * @param array      the array need to be sorted
+     * @param comparator the comparator used to sort
+     * @param <T>        a generic type
      */
-
-    public static <T extends Comparable<? super T>> void selectionSortDesc(T[] arrays, Comparator<? super T> comparator) {
-        for (int i = 0; i < arrays.length - 1; i++) {
+    public static <T extends Comparable<? super T>> void selectionSortDesc(T[] array, Comparator<? super T> comparator) {
+        for (int i = 0; i < array.length - 1; i++) {
             int max = i;
-            for (int j = i + 1; j < arrays.length; j++) {
-                if (comparator.compare(arrays[max], arrays[j]) < 0) {
+            for (int j = i + 1; j < array.length; j++) {
+                if (comparator.compare(array[max], array[j]) < 0) {
                     max = j;
                 }
             }
             if (max != i) {
-                swap(arrays, i, max);
+                T temp = array[i];
+                array[i] = array[max];
+                array[max] = temp;
             }
         }
     }
+
     /**
-     * Method use to sort objects sore in array in descending order, it will call when user sorts by height
-     * @param arrays the shape array store objects to sort
-     * @param <T>
+     * Method uses to sort objects sore in comparable array in descending order.
+     *
+     * @param array the array need to be sorted
+     * @param <T>   a generic type
      */
-    public static <T extends Comparable<? super T>> void selectionSortDesc(T[] arrays) {
-        for (int i = 0; i < arrays.length - 1; i++) {
+    public static <T extends Comparable<? super T>> void selectionSortDesc(T[] array) {
+        for (int i = 0; i < array.length - 1; i++) {
             int max = i;
-            for (int j = i + 1; j < arrays.length; j++) {
-                if (arrays[max].compareTo(arrays[j]) < 0) {
+            for (int j = i + 1; j < array.length; j++) {
+                if (array[max].compareTo(array[j]) < 0) {
                     max = j;
                 }
             }
             if (max != i) {
-                swap(arrays, i, max);
-            }
-        }
-    }
-    /**
-     * Method use to sort objects sore in array in ascending order, it will call when user sorts by volume or base area
-     * @param arrays the shape array store objects to sort
-     * @param comparator the comparator is used to sort
-     * @param <T>
-     */
-    public static <T extends Comparable<? super T>> void selectionSort(T[] arrays, Comparator<? super T> comparator) {
-        for (int i = 0; i < arrays.length - 1; i++) {
-            int min = i;
-            for (int j = i + 1; j < arrays.length; j++) {
-                if (comparator.compare(arrays[min], arrays[j]) > 0) {
-                    min = j;
-                }
-            }
-            if (min != i) {
-                swap(arrays, i, min);
+                T temp = array[i];
+                array[i] = array[max];
+                array[max] = temp;
             }
         }
     }
 
     /**
-     * Method use to sort objects sore in array in ascending order, it will call when user sorts by height
-     * @param arrays the shape array store objects to sort
-     * @param <T>
+     * Method uses to sort objects sore in comparable array in ascending order, it will compare array's elements by comparator.
+     *
+     * @param array      the array need to be sorted
+     * @param comparator the comparator used to sort
+     * @param <T>        a generic type
      */
-
-    public static <T extends Comparable<? super T>> void selectionSort(T[] arrays) {
-        for (int i = 0; i < arrays.length - 1; i++) {
+    public static <T extends Comparable<? super T>> void selectionSort(T[] array, Comparator<? super T> comparator) {
+        for (int i = 0; i < array.length - 1; i++) {
             int min = i;
-            for (int j = i + 1; j < arrays.length; j++) {
-                if (arrays[min].compareTo(arrays[j]) > 0) {
+            for (int j = i + 1; j < array.length; j++) {
+                if (comparator.compare(array[min], array[j]) > 0) {
                     min = j;
                 }
             }
             if (min != i) {
-                swap(arrays, i, min);
+                T temp = array[i];
+                array[i] = array[min];
+                array[min] = temp;
             }
         }
     }
+
     /**
-     * This is utilize swap method use to swap element between 2 positions
-     * @param o the Generic array store data
-     * @param a the first index in shape array
-     * @param b the second index in shape array
-     * @param <T> a Generic typ
+     * Method uses to sort objects sore in comparable array in ascending order.
+     *
+     * @param array the array need to be sorted
+     * @param <T>   a generic type
      */
-    public static <T> void swap(T[] o, int a, int b) {
-        T temp = o[a];
-        o[a] = o[b];
-        o[b] = temp;
+    public static <T extends Comparable<? super T>> void selectionSort(T[] array) {
+        for (int i = 0; i < array.length - 1; i++) {
+            int min = i;
+            for (int j = i + 1; j < array.length; j++) {
+                if (array[min].compareTo(array[j]) > 0) {
+                    min = j;
+                }
+            }
+            if (min != i) {
+                T temp = array[i];
+                array[i] = array[min];
+                array[min] = temp;
+            }
+        }
     }
 }

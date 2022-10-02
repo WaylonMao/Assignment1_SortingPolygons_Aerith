@@ -3,11 +3,11 @@ package com.aerith.sortingpolygons.sorts;
 import java.util.Comparator;
 
 /**
- * Class description: This class uses to sort objects store in array using insertion sort method.
- * User can choose descending or ascending order
- * When using this class you do not need to create instances, because they are all static methods.
- * The arrays should implement Comparable. And you need a comparator instance,
+ * Class description: This class can sort comparable array by using insertion sort.
+ * The array should implement Comparable. And you need a comparator instance,
  * if you want to use comparator to do the compare part.
+ * When using this class you do not need to create instances, because they are all static methods.
+ * And this class already include both ascending and descending methods.
  *
  * @author Weilong Mao
  * @author Hoa Le
@@ -17,71 +17,76 @@ import java.util.Comparator;
  */
 public class InsertionSort {
     /**
-     * Method uses to sort objects store in array in descending order, it will call when user sorts by volume or base area
-     * @param <T> the generic
-     * @param arrays the shape array to store objects
-     * @param comparator the comparator is used to sort
+     * Method uses to sort objects store in comparable array in descending order, it will compare array's elements by comparator.
+     *
+     * @param <T>        the generic
+     * @param array      the array need to be sorted
+     * @param comparator the comparator used to sort
      */
-    public static <T extends Comparable<? super T>> void insertionSortDesc(T[] arrays, Comparator<? super T> comparator) {
-        for (int i = 0; i < arrays.length; i++) {
-            T o = arrays[i];
+    public static <T extends Comparable<? super T>> void insertionSortDesc(T[] array, Comparator<? super T> comparator) {
+        for (int i = 0; i < array.length; i++) {
+            T o = array[i];
             int j = i;
-            while ((j > 0) && (comparator.compare(arrays[j - 1], o) < 0)) {
-                arrays[j] = arrays[j - 1];
+            while ((j > 0) && (comparator.compare(array[j - 1], o) < 0)) {
+                array[j] = array[j - 1];
                 j--;
             }
-            arrays[j] = o;
+            array[j] = o;
         }
     }
 
     /**
-     * Method uses to sort objects store in array in descending order, and using comparable interface for sorting height
-     * @param <T> the Generic
-     * @param arrays the shape array uses to store objects
+     * Method uses to sort objects store in comparable array in descending order.
+     *
+     * @param <T>   the generic
+     * @param array the array need to be sorted
      */
-    public static <T extends Comparable<? super T>> void insertionSortDesc(T[] arrays) {
-        for (int i = 0; i < arrays.length; i++) {
-            T o = arrays[i];
+    public static <T extends Comparable<? super T>> void insertionSortDesc(T[] array) {
+        for (int i = 0; i < array.length; i++) {
+            T o = array[i];
             int j = i;
-            while ((j > 0) && (arrays[j - 1].compareTo(o) < 0)) {
-                arrays[j] = arrays[j - 1];
+            while ((j > 0) && (array[j - 1].compareTo(o) < 0)) {
+                array[j] = array[j - 1];
                 j--;
             }
-            arrays[j] = o;
+            array[j] = o;
         }
     }
+
     /**
-     * Method uses to sort objects store in array in ascending order, it will call when user sorts by volume or base area
-     * @param <T> the generic
-     * @param arrays the shape array to store objects
+     * Method uses to sort objects store in comparable array in ascending order, it will compare array's elements by comparator.
+     *
+     * @param <T>        the generic
+     * @param array      the array need to be sorted
      * @param comparator the comparator is used to store
      */
-    public static <T extends Comparable<? super T>> void insertionSort(T[] arrays, Comparator<? super T> comparator) {
-        for (int i = 0; i < arrays.length; i++) {
-            T o = arrays[i];
+    public static <T extends Comparable<? super T>> void insertionSort(T[] array, Comparator<? super T> comparator) {
+        for (int i = 0; i < array.length; i++) {
+            T o = array[i];
             int j = i;
-            while ((j > 0) && (comparator.compare(arrays[j - 1], o) > 0)) {
-                arrays[j] = arrays[j - 1];
+            while ((j > 0) && (comparator.compare(array[j - 1], o) > 0)) {
+                array[j] = array[j - 1];
                 j--;
             }
-            arrays[j] = o;
+            array[j] = o;
         }
     }
 
     /**
-     * Method uses to sort objects store in array in ascending order, and using comparable interface for sorting height
-     * @param <T> the Generic
-     * @param arrays the shape array uses to store objects
+     * Method uses to sort objects store in comparable array in ascending order.
+     *
+     * @param <T>   the generic
+     * @param array the array need to be sorted
      */
-    public static <T extends Comparable<? super T>> void insertionSort(T[] arrays) {
-        for (int i = 0; i < arrays.length; i++) {
-            T o = arrays[i];
+    public static <T extends Comparable<? super T>> void insertionSort(T[] array) {
+        for (int i = 0; i < array.length; i++) {
+            T o = array[i];
             int j = i;
-            while ((j > 0) && (arrays[j - 1].compareTo(o) > 0)) {
-                arrays[j] = arrays[j - 1];
+            while ((j > 0) && (array[j - 1].compareTo(o) > 0)) {
+                array[j] = array[j - 1];
                 j--;
             }
-            arrays[j] = o;
+            array[j] = o;
         }
     }
 }

@@ -27,40 +27,40 @@ public class Sorter {
     /**
      * Method uses to manage all sort methods included Comparator interface to compare two shapes by their base area and height
      * @param <T> The generic type
-     * @param arrays the arrays use to hold all shapes
+     * @param array the array use to hold all shapes
      * @param comparator the type of comparator uses to sort
      * @param method the sort method uses to sort
      * @param order the sort order use to sort
      */
-    public <T extends Comparable<? super T>> void sort(T[] arrays, Comparator<? super T> comparator, char method, char order) {
+    public <T extends Comparable<? super T>> void sort(T[] array, Comparator<? super T> comparator, char method, char order) {
         switch (method) {
             case 'i':
-                if (order == 'a') InsertionSort.insertionSort(arrays, comparator);
-                else if (order == 'd') InsertionSort.insertionSortDesc(arrays, comparator);
+                if (order == 'a') InsertionSort.insertionSort(array, comparator);
+                else if (order == 'd') InsertionSort.insertionSortDesc(array, comparator);
                 else printOrderError();
                 break;
             case 's':
-                if (order == 'a') SelectionSort.selectionSort(arrays, comparator);
-                else if (order == 'd') SelectionSort.selectionSortDesc(arrays, comparator);
+                if (order == 'a') SelectionSort.selectionSort(array, comparator);
+                else if (order == 'd') SelectionSort.selectionSortDesc(array, comparator);
                 else printOrderError();
                 break;
             case 'b':
-                if (order == 'a') BubbleSort.bubbleSort(arrays, comparator);
-                else if (order == 'd') BubbleSort.bubbleSortDesc(arrays, comparator);
+                if (order == 'a') BubbleSort.bubbleSort(array, comparator);
+                else if (order == 'd') BubbleSort.bubbleSortDesc(array, comparator);
                 else printOrderError();
                 break;
             case 'm':
-                if (order == 'a') MergeSort.mergeSort(arrays, comparator);
-                else if (order == 'd') MergeSort.mergeSortDesc(arrays, comparator);
+                if (order == 'a') MergeSort.mergeSort(array, comparator);
+                else if (order == 'd') MergeSort.mergeSortDesc(array, comparator);
                 else printOrderError();
                 break;
             case 'q':
-                if (order == 'a') QuickSort.quickSort(arrays, comparator);
-                else if (order == 'd') QuickSort.quickSortDesc(arrays, comparator);
+                if (order == 'a') QuickSort.quickSort(array, comparator);
+                else if (order == 'd') QuickSort.quickSortDesc(array, comparator);
                 else printOrderError();
             case 'z':
-                if (order == 'a') ShellSort.shellSort(arrays, comparator);
-                else if (order == 'd') ShellSort.shellSortDesc(arrays, comparator);
+                if (order == 'a') ShellSort.shellSort(array, comparator);
+                else if (order == 'd') ShellSort.shellSortDesc(array, comparator);
                 else printOrderError();
         }
     }
@@ -69,39 +69,39 @@ public class Sorter {
      *
      * Method uses to manage all sort methods and uses compareTo() method of Comparable interface to compare two shapes by their height
      * @param <T> The generic type
-     * @param arrays the arrays use to hold all shapes
+     * @param array the array use to hold all shapes
      * @param method the sort method uses to sort
      * @param order the sort order use to sort
      */
-    public <T extends Comparable<? super T>> void sort(T[] arrays, char method, char order) {
+    public <T extends Comparable<? super T>> void sort(T[] array, char method, char order) {
         switch (method) {
             case 'i':
-                if (order == 'a') InsertionSort.insertionSort(arrays);
-                else if (order == 'd') InsertionSort.insertionSortDesc(arrays);
+                if (order == 'a') InsertionSort.insertionSort(array);
+                else if (order == 'd') InsertionSort.insertionSortDesc(array);
                 else printOrderError();
                 break;
             case 's':
-                if (order == 'a') SelectionSort.selectionSort(arrays);
-                else if (order == 'd') SelectionSort.selectionSortDesc(arrays);
+                if (order == 'a') SelectionSort.selectionSort(array);
+                else if (order == 'd') SelectionSort.selectionSortDesc(array);
                 else printOrderError();
                 break;
             case 'b':
-                if (order == 'a') BubbleSort.bubbleSort(arrays);
-                else if (order == 'd') BubbleSort.bubbleSortDesc(arrays);
+                if (order == 'a') BubbleSort.bubbleSort(array);
+                else if (order == 'd') BubbleSort.bubbleSortDesc(array);
                 else printOrderError();
                 break;
             case 'm':
-                if (order == 'a') MergeSort.mergeSort(arrays);
-                else if (order == 'd') MergeSort.mergeSortDesc(arrays);
+                if (order == 'a') MergeSort.mergeSort(array);
+                else if (order == 'd') MergeSort.mergeSortDesc(array);
                 else printOrderError();
                 break;
             case 'q':
-                if (order == 'a') QuickSort.quickSort(arrays);
-                else if (order == 'd') QuickSort.quickSortDesc(arrays);
+                if (order == 'a') QuickSort.quickSort(array);
+                else if (order == 'd') QuickSort.quickSortDesc(array);
                 else printOrderError();
             case 'z':
-                if (order == 'a') ShellSort.shellSort(arrays);
-                else if (order == 'd') ShellSort.shellSortDesc(arrays);
+                if (order == 'a') ShellSort.shellSort(array);
+                else if (order == 'd') ShellSort.shellSortDesc(array);
                 else printOrderError();
         }
     }

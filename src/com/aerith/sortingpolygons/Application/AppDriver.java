@@ -68,7 +68,7 @@ public class AppDriver {
             System.out.println("File loaded.");
             System.out.println("Total time is used to read a file: " + (stop - start) + "ms" + "\n");
 
-            // Get Shape arrays from ShapeManager.
+            // Get Shape array from ShapeManager.
             Shape[] shapes = sm.getShapes();
             System.out.println("Start sorting a file.....");
             Sorter sorter = new Sorter();
@@ -94,10 +94,10 @@ public class AppDriver {
     }
 
     /**
-     * This method is used to print out Shapes from Arrays by height, base area or volume.
+     * This method is used to print out Shapes from array by height, base area or volume.
      *
-     * @param shapes
-     * @param compareType
+     * @param shapes        Shap array need to be printed.
+     * @param compareType   The type of value need to be printed.
      */
     private static void printShapes(Shape[] shapes, char compareType) {
         double value = 0;
@@ -128,8 +128,8 @@ public class AppDriver {
      * This method is for verifying arguments in command line. And it may call transArgs method to verify each part of
      * the arguments.
      *
-     * @param args the string store user input
-     * @return error the error when command line is wrong
+     * @param args  the string store user input
+     * @return      Return true when command line is wrong
      */
     private boolean parseArgs(String[] args) {
         boolean error = false;
@@ -162,8 +162,8 @@ public class AppDriver {
      * This method can transfer arguments to the file path, compare type, and sorting method.
      * And at the same time, it also verifies them and print out the relevant messages.
      *
-     * @param arg the string store user input
-     * @return error the error when command line is wrong
+     * @param arg   the string store user's input
+     * @return      Return true when command line is wrong
      */
     private boolean transArgs(String arg) {
         boolean error = false;

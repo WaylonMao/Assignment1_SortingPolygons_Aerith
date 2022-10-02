@@ -23,7 +23,7 @@ import java.util.StringTokenizer;
 public class ShapeManager {
 
     /**
-     * This arrays stores the Shape objects that need to be managed.
+     * This array stores the Shape objects that need to be managed.
      * @Fields shapes
      */
     private Shape[] shapes;
@@ -83,9 +83,9 @@ public class ShapeManager {
     }
 
     /**
-     * Get Shape arrays.
+     * Get Shape array.
      *
-     * @return Shape arrays
+     * @return Shape array
      */
     public Shape[] getShapes() {
         return shapes;

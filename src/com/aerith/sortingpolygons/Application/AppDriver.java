@@ -96,7 +96,7 @@ public class AppDriver {
     /**
      * This method is used to print out Shapes from array by height, base area or volume.
      *
-     * @param shapes        Shap array need to be printed.
+     * @param shapes        Shape array need to be printed.
      * @param compareType   The type of value need to be printed.
      */
     private static void printShapes(Shape[] shapes, char compareType) {

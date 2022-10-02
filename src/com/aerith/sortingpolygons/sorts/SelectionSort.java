@@ -16,6 +16,7 @@ import java.util.Comparator;
  * @version 1.0 October 07, 2022
  */
 public class SelectionSort {
+    /**THIS PART IS USED WHEN USER CHOOSE DESCENDING SORT**/
 
     /**
      * Method uses to sort objects sore in comparable array in descending order, it will compare array's elements by comparator.
@@ -24,6 +25,8 @@ public class SelectionSort {
      * @param comparator the comparator used to sort
      * @param <T>        a generic type
      */
+
+
     public static <T extends Comparable<? super T>> void selectionSortDesc(T[] array, Comparator<? super T> comparator) {
         for (int i = 0; i < array.length - 1; i++) {
             int max = i;
@@ -61,6 +64,7 @@ public class SelectionSort {
             }
         }
     }
+    /**THIS PART IS USED WHEN USER CHOOSE ASCENDING SORT**/
 
     /**
      * Method uses to sort objects sore in comparable array in ascending order, it will compare array's elements by comparator.

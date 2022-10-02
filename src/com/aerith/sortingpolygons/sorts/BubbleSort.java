@@ -16,7 +16,7 @@ import java.util.Comparator;
  * @version 1.0 October 07, 2022
  */
 public class BubbleSort {
-
+    /**THIS PART IS USED WHEN USER CHOOSE DESCENDING SORT**/
     /**
      * Method uses to sort objects store in comparable array in descending order, it will compare array's elements by comparator.
      *
@@ -59,6 +59,8 @@ public class BubbleSort {
             }
         }
     }
+
+    /**THIS PART IS USED WHEN USER CHOOSE ASCENDING SORT**/
 
     /**
      * Method uses to sort objects store in comparable array in ascending order, it will compare array's elements by comparator.

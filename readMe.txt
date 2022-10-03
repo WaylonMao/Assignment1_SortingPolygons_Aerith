@@ -29,14 +29,16 @@
     + sort.jar is this program's jar file name
     + -f is defined starting txt file, the program will show error when user miss - or f.
     + polyfor1.txt is txt file name use for test algorithms, user can change to different files using txt format
+
     + -t is defined starting type of sort: a program can sort by volume, base area and height of shape. The
       program will show error when miss - or f.
     + v is defined compare type by volume of shape
     + a is defined compare type by base area of shape
     + h is defined compared type by height of shape
+
     + -s is defined starting which sort algorithms is used to sort. There are six sort algorithms can use on this
       program. The program will show error when miss either - or s
-    + following "-s", user can select one of following keyword to choose the sort algorithm b,i,s,m,q,z. The program
+    + following "-s", user can select one of following keyword to choose the sort algorithm b, i, s, m, q, z. The program
 	  will show error when miss or typo those keywords
 
 6. How to run program: the program should need txt file places on your machine in order to run.	

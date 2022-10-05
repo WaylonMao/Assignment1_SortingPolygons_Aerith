@@ -14,8 +14,8 @@ package com.aerith.sortingpolygons.modules;
 
 public class Pyramid extends Shape{
     /**
-     *
-     * @Fields side the side of Pyramid
+     * The side of Pyramid
+     * @Fields side
      **/
     private double side;
 

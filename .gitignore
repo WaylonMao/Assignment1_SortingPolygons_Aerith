@@ -51,3 +51,4 @@ build/
 *.diff
 *.patch
 *.tmp
+doc/

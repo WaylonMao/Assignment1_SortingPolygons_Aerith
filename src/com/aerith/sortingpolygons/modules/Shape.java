@@ -15,10 +15,22 @@ package com.aerith.sortingpolygons.modules;
  */
 public abstract class Shape implements Comparable<Shape> {
 
+	/**
+	 * The height of Shape
+	 * @Fields height
+	 */
     private double height;
 
+	/**
+	 * The volume of Shape
+	 * @Fields volume
+	 */
     private double volume;
 
+	/**
+	 * The base area of Shape
+	 * @Fields baseArea
+	 */
     private double baseArea;
 
     /**

@@ -99,7 +99,7 @@ public class AppDriver {
             System.out.println("Thank you for using this program! See you soon!\n\n");
             printLine();
 
-            // This part is just for our beloved instructor - Kitty Wong.
+            // This part is for our beloved instructor - Kitty Wong.
             System.out.println(
                     "        _   _         _  _          _   __ _\n" +
                             "       | | | |  ___  | || |  ___   | | / /(_)  _     _\n" +
@@ -125,7 +125,7 @@ public class AppDriver {
     }
 
     private static void printLine() {
-        System.out.println(String.join("", Collections.nCopies(80, "-")));
+        System.out.println(String.join("", Collections.nCopies(70, "-")));
     }
 
     /**
